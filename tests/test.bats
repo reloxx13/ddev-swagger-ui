@@ -18,8 +18,8 @@ health_checks() {
   # Make sure we can hit the 8080 port successfully from outside
   curl -s -I -f  https://${PROJNAME}.ddev.site:8080 >/tmp/curlout.txt
 
-  # Make sure we can hit the 80 port successfully from inside
-  ddev exec "curl -s http://localhost"
+  # Make sure we can hit the 8080 port successfully from inside
+  ddev exec "curl -s http://localhost:8080"
 
   # Make sure we can hit the 8080 port successfully from outside
   assert_output "FULLURL https://${PROJNAME}.ddev.site:8080"
