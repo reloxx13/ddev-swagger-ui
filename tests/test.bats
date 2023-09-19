@@ -13,7 +13,7 @@ setup() {
 
 health_checks() {
   # Do something useful here that verifies the add-on
-  ddev exec "curl -s http://localhost:8080/"
+  ddev exec "curl -s https://localhost:8080"
 }
 
 teardown() {
