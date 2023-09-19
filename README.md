@@ -8,7 +8,10 @@ This addon is based on the [Swagger UI Docker Image](https://hub.docker.com/r/sw
 
 Advanced documentation can be found in the [Swagger UI Docker Docs](https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/installation.md#docker).
 
-## Using swagger-ui within a project
+DDEV docs for [Additional Service Configurations & Add-ons](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/)
+
+
+## Using ddev-swagger-ui within a project
 ### Dependencies
 
 Make sure you have [DDEV v1.22.1+ installed](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
