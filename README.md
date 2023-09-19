@@ -2,7 +2,7 @@
 
 ## What is ddev-swagger-ui?
 
-This repository provides [Swagger UI](https://swagger.io/tools/swagger-ui/) as a DDEV addon to serve a web-ui for a swagger file.
+This repository provides [Swagger UI](https://swagger.io/tools/swagger-ui/) as a [DDEV](https://ddev.com/) add-on to serve a web-ui for a OpenAPI/Swagger file.
 
 This addon is based on the [Swagger UI Docker Image](https://hub.docker.com/r/swaggerapi/swagger-ui).
 
