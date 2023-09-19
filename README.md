@@ -28,8 +28,10 @@ To upgrade your version of ddev-swagger-ui, repeat the `ddev get ddev/ddev-swagg
 ## What does it do right now?
 
 * Provides the following swagger-ui-docker-provided environmental variables:
-   * SWAGGER_JSON
-   * SWAGGER_JSON_URL
+   * PORT=8080
+   * BASE_URL=/
+   * SWAGGER_JSON=/var/www/html/swagger.json
+   * SWAGGER_JSON_URL=
 
 **Contributed and maintained by [@rfay](https://github.com/rfay) and [@reloxx13](https://github.com/reloxx13)**
 
