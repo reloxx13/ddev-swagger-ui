@@ -4,8 +4,6 @@ services:
     container_name: ddev-${DDEV_SITENAME}-swagger-ui
     image: swaggerapi/swagger-ui
     restart: "no"
-    ports:
-      - 8080
     expose:
       - 8080
     labels:
