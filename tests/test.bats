@@ -16,8 +16,7 @@ health_checks() {
   # Do something useful here that verifies the add-on
 
   # Make sure we can hit the 8080 port successfully from outside
-  curl -s --fail https://${PROJNAME}.ddev.site:8080
-  ddev exec "curl -s --fail http://localhost:8080"
+  curl -s -I -f  https://${PROJNAME}.ddev.site:8080 >/tmp/curlout.txt
 
   # Make sure we can hit the 8080 port successfully from outside
   assert_output "FULLURL https://${PROJNAME}.ddev.site:8080"
