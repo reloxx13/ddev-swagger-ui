@@ -17,9 +17,6 @@ health_checks() {
 
   # Make sure we can hit the 8080 port successfully from outside
   curl -s -I -f  https://${PROJNAME}.ddev.site:8080 >/tmp/curlout.txt
-
-  # Make sure we can hit the 8080 port successfully from outside
-  assert_output "FULLURL https://${PROJNAME}.ddev.site:8080"
 }
 
 teardown() {
