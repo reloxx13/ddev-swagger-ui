@@ -39,6 +39,8 @@ teardown() {
 }
 
 @test "install from release" {
+  skip # Not yet official
+
   set -eu -o pipefail
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   echo "# ddev get ddev/ddev-swagger-ui with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
