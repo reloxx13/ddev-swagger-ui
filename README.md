@@ -2,7 +2,7 @@
 
 ## What is ddev-swagger-ui?
 
-This repository provides [Swagger UI](https://swagger.io/tools/swagger-ui/) as a [DDEV](https://ddev.com/) add-on to serve a web-ui for a OpenAPI/Swagger file.
+This repository provides [Swagger UI](https://swagger.io/tools/swagger-ui/) as a [DDEV](https://ddev.com/) add-on to serve a web-ui for a [OpenAPI/Swagger](https://swagger.io/resources/open-api/) (api documentation) file.
 
 This addon is based on the [Swagger UI Docker Image](https://hub.docker.com/r/swaggerapi/swagger-ui).
 
@@ -36,6 +36,6 @@ To upgrade your version of ddev-swagger-ui, repeat the `ddev get ddev/ddev-swagg
    * SWAGGER_JSON=/var/www/html/swagger.json
    * SWAGGER_JSON_URL=
 
-**Contributed and maintained by [@rfay](https://github.com/rfay) and [@reloxx13](https://github.com/reloxx13)**
+
 
 

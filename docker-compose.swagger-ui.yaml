@@ -2,7 +2,7 @@ version: '3.6'
 services:
   swagger-ui:
     container_name: ddev-${DDEV_SITENAME}-swagger-ui
-    image: swaggerapi/swagger-ui
+    image: swaggerapi/swagger-ui:latest
     restart: "no"
     expose:
       - 8080
@@ -11,8 +11,8 @@ services:
       com.ddev.approot: ${DDEV_APPROOT}
     environment:
       - VIRTUAL_HOST=$DDEV_HOSTNAME
-      - HTTP_EXPOSE=8080:8080
-      - HTTPS_EXPOSE=8080:8080
+      - HTTP_EXPOSE=8088:8080
+      - HTTPS_EXPOSE=8089:8080
       - PORT=8080
       - BASE_URL=/
       - SWAGGER_JSON=/var/www/html/swagger.json
