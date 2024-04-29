@@ -21,7 +21,7 @@ execute_test() {
 }
 
 health_checks() {
-  ddev exec "curl -s swagger-ui:8080" | grep "${PROJNAME}-swagger-ui"
+  ddev exec "curl -s swagger-ui:8080" | grep "Swagger UI"
 }
 
 teardown() {
