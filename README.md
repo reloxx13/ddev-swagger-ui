@@ -19,12 +19,12 @@ Make sure you have [DDEV v1.22.1+ installed](https://ddev.readthedocs.io/en/late
 ### Install
 1. `cd` into your project directory
 2. Run `ddev config` and answer the questions as appropriate
-3. Run `ddev get ddev/ddev-swagger-ui` and answer the questions as appropriate
+3. Run `ddev get reloxx13/ddev-swagger-ui` and answer the questions as appropriate
 4. Run `ddev start` or `ddev restart`
 
 ### Upgrade
 
-To upgrade your version of ddev-swagger-ui, repeat the `ddev get ddev/ddev-swagger-ui` to get the latest release. To see the installed version, `ddev get --installed`.
+To upgrade your version of ddev-swagger-ui, repeat the `ddev get reloxx13/ddev-swagger-ui` to get the latest release. To see the installed version, `ddev get --installed`.
 
 ## Notes
 
