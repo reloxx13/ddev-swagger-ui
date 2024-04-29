@@ -1,48 +1,39 @@
 setup() {
   set -eu -o pipefail
   export DIR="$( cd "$( dirname "$BATS_TEST_FILENAME" )" >/dev/null 2>&1 && pwd )/.."
-  export PROJNAME=test-swagger-ui
-  export DDEV_NON_INTERACTIVE=true
-  export TESTDIR=~/tmp/${PROJNAME}
+  export TESTDIR=~/tmp/test-swagger-ui
   mkdir -p $TESTDIR
+  export PROJNAME=test-swagger-ui
+  export ADDON_PATH="reloxx13/ddev-swagger-ui"
+  export USE_VERSION8=false
+  export DDEV_NON_INTERACTIVE=true
   ddev delete -Oy ${PROJNAME} >/dev/null 2>&1 || true
-  cd "${TESTDIR}"
+  cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   ddev config --project-name=${PROJNAME}
   ddev start -y >/dev/null
 }
 
-health_checks() {
-  set +u # bats-assert has unset variables so turn off unset check
-  # Do something useful here that verifies the add-on
+execute_test() {
+  echo "# ddev get ${ADDON_PATH} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
+  ddev get ${ADDON_PATH} >/dev/null
+  ddev restart >/dev/null
+  health_checks
+}
 
-  # Make sure we can hit the 8080 port successfully from outside
-  curl -s -I -f  https://${PROJNAME}.ddev.site:9081 >/tmp/curlout.txt
+health_checks() {
+  ddev exec "curl -s swagger-ui:8089" | grep "${PROJNAME}-swagger-ui"
 }
 
 teardown() {
-  set -eu -o pipefail
-  cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   ddev delete -Oy ${PROJNAME} >/dev/null 2>&1
   [ "${TESTDIR}" != "" ] && rm -rf ${TESTDIR}
 }
 
 @test "install from directory" {
-  set -eu -o pipefail
-  cd ${TESTDIR}
-  echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get ${DIR}
-  ddev restart
-  health_checks
+  ADDON_PATH="${DIR}"
+  execute_test
 }
 
 @test "install from release" {
-  skip # Not yet official
-
-  set -eu -o pipefail
-  cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  echo "# ddev get ddev/ddev-swagger-ui with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get ddev/ddev-swagger-ui
-  ddev restart >/dev/null
-  health_checks
+  execute_test
 }
-
