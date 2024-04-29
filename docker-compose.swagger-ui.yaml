@@ -2,6 +2,7 @@ version: '3.6'
 services:
   swagger-ui:
     container_name: ddev-${DDEV_SITENAME}-swagger-ui
+    hostname: ${DDEV_SITENAME}-swagger-ui
     image: swaggerapi/swagger-ui:latest
     restart: "no"
     expose:
